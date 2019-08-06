@@ -1,7 +1,7 @@
-package com.mw.Advice;
+package com.mw.common.Advice;
 
-import com.mw.Annotation.IgnoreResponseAdvice;
-import com.mw.Vo.CommonResponse;
+import com.mw.common.Annotation.IgnoreResponseAdvice;
+import com.mw.common.Vo.CommonResponse;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;

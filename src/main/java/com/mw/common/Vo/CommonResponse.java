@@ -1,4 +1,4 @@
-package com.mw.Vo;
+package com.mw.common.Vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

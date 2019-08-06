@@ -1,7 +1,7 @@
-package com.mw.Advice;
+package com.mw.common.Advice;
 
 
-import com.mw.Vo.CommonResponse;
+import com.mw.common.Vo.CommonResponse;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
