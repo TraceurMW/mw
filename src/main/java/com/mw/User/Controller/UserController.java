@@ -14,22 +14,22 @@ public class UserController extends CommonController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("getUserById")
+    @GetMapping("get")
     public User getUserById(Long id) {
         return userService.getById(id);
     }
 
-    @GetMapping("getUserList")
+    @GetMapping("getList")
     public List getUserList() {
         return userService.getList();
     }
 
-    @PostMapping("saveUser")
-    public User saveUser(User user) {
+    @PostMapping("save")
+    public User saveUser(@RequestBody User user) {
         return userService.save(user);
     }
 
-    @DeleteMapping("deleteUserById")
+    @DeleteMapping("delete")
     public void deleteUser(Long id) {
         userService.deleteById(id);
     }

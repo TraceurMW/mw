@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl extends CommonServiceImpl implements UserService {
@@ -25,7 +26,8 @@ public class UserServiceImpl extends CommonServiceImpl implements UserService {
     @Override
     @Transactional(readOnly = true)
     public User getById(Long id) {
-        User one = userRepository.getOne(id);
+        Optional<User> byId = userRepository.findById(id);
+        User one = byId.get();
         return one;
     }
 
