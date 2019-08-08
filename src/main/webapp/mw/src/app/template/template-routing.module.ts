@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {TestComponent} from "./test/test.component";
+import {FlexTestComponent} from "./flex-test/flex-test.component";
+import {TreeListComponent} from "./tree-list/tree-list.component";
+import {ListComponent} from "./list/list.component";
 
 
-const routes: Routes = [];
+const routes: Routes = [ {path: 'test', component: TestComponent},
+  {path: 'flex-test', component: FlexTestComponent},  {path: 'tree-list', component: TreeListComponent},
+  {path: 'list', component: ListComponent},];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

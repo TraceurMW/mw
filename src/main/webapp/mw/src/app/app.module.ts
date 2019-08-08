@@ -22,6 +22,7 @@ import zh from '@angular/common/locales/zh';
 import {TemplateModule} from "./template/template.module";
 import {TreeListComponent} from "./template/tree-list/tree-list.component";
 import {Service} from "./services/service";
+import {LoginModule} from "./pages/login/login.module";
 
 registerLocaleData(zh);
 @NgModule({
@@ -30,7 +31,7 @@ registerLocaleData(zh);
   ],
   imports: [
     BrowserModule, MatSidenavModule,
-    AppRoutingModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, ReactiveFormsModule, MatFormFieldModule, MatAutocompleteModule, MatSelectModule, IconsProviderModule, NgZorroAntdModule, FormsModule, HttpClientModule,TemplateModule
+    AppRoutingModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, ReactiveFormsModule, MatFormFieldModule, MatAutocompleteModule, MatSelectModule, IconsProviderModule, NgZorroAntdModule, FormsModule, HttpClientModule,TemplateModule,LoginModule
   ],
   providers: [Service,{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

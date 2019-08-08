@@ -7,10 +7,11 @@ import {NgZorroAntdModule} from "ng-zorro-antd";
 import { ListComponent } from './list/list.component';
 import {FormsModule} from "@angular/forms";
 import { TestComponent } from './test/test.component';
+import { FlexTestComponent } from './flex-test/flex-test.component';
 
 
 @NgModule({
-  declarations: [TreeListComponent, ListComponent, TestComponent],
+  declarations: [TreeListComponent, ListComponent, TestComponent, FlexTestComponent],
   imports: [
     CommonModule,
     TemplateRoutingModule, NgZorroAntdModule, FormsModule,

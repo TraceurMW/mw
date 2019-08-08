@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
 import {en_US, NzI18nService, zh_CN} from "ng-zorro-antd";
-
+import {Service} from "../../services/service";
+import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -9,199 +10,16 @@ import {en_US, NzI18nService, zh_CN} from "ng-zorro-antd";
 })
 export class TestComponent implements OnInit {
 
-  listOfData = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park'
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    }
-  ];
-
-
-  date = null; // new Date();
-  dateRange = []; // [ new Date(), addDays(new Date(), 3) ];
-  isEnglish = true;
-  validateForm: FormGroup;
-  controlArray: any[] = [];
-  isCollapse = true;
-
-  toggleCollapse(): void {
-    this.isCollapse = !this.isCollapse;
-    this.controlArray.forEach((c, index) => {
-      c.show = this.isCollapse ? index < 6 : true;
-    });
-  }
-
-  resetForm(): void {
-    this.validateForm.reset();
-  }
-
+  constructor(public service:Service) {}
 
   ngOnInit(): void {
-    this.validateForm = this.fb.group({});
-    for (let i = 0; i < 2; i++) {
-      this.controlArray.push({ index: i, show: i < 6 });
-      this.validateForm.addControl(`field${i}`, new FormControl());
-    }
-  }
-  constructor(private i18n: NzI18nService,private fb: FormBuilder) {}
-
-  onChange(result: Date): void {
-    console.log('onChange: ', result);
+    this.service
+      .get(2)
+      .subscribe(
+        (res: HttpResponse<any>) => console.log(res),
+        (res: HttpErrorResponse) => console.log("fuck")
+      );
   }
 
-  getWeek(result: Date): void {
-
-  }
-
-  changeLanguage(): void {
-    this.i18n.setLocale(this.isEnglish ? zh_CN : en_US);
-    this.isEnglish = !this.isEnglish;
-  }
 
 }

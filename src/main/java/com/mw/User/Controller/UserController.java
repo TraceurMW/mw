@@ -14,8 +14,8 @@ public class UserController extends CommonController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("get")
-    public User getUserById(Long id) {
+    @GetMapping("get/{id}")
+    public User getUserById(@PathVariable  Long id) {
         return userService.getById(id);
     }
 
