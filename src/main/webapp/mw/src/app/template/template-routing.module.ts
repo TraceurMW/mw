@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'test', component: TestComponent},
   {path: 'flex-test', component: FlexTestComponent}, {path: 'tree-list', component: TreeListComponent},
   {path: 'list', component: ListComponent},
-  // {path: '', redirectTo: '/test', pathMatch: 'full'},
+  {path: '', redirectTo: '/list', pathMatch: 'full'},
 ];
 
 
