@@ -12,17 +12,24 @@ import {
   MatFormFieldModule,
   MatAutocompleteModule, MatSelectModule
 } from '@angular/material';
-import { ReactiveFormsModule  } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import {TwoComponent} from "./exercise/css-secrets/two/two.component";
+import { IconsProviderModule } from './icons-provider.module';
+import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import zh from '@angular/common/locales/zh';
+
+registerLocaleData(zh);
 @NgModule({
   declarations: [
     AppComponent,OneComponent,TwoComponent
   ],
   imports: [
     BrowserModule, MatSidenavModule,
-    AppRoutingModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, ReactiveFormsModule, MatFormFieldModule, MatAutocompleteModule, MatSelectModule
+    AppRoutingModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, ReactiveFormsModule, MatFormFieldModule, MatAutocompleteModule, MatSelectModule, IconsProviderModule, NgZorroAntdModule, FormsModule, HttpClientModule
   ],
-  providers: [],
+  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

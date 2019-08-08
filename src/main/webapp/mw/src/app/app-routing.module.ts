@@ -1,19 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {OneComponent} from "./exercise/css-secrets/one/one.component";
-import {TwoComponent} from "./exercise/css-secrets/two/two.component";
-
 
 const routes: Routes = [
-  {
-    path:"",redirectTo: 'css', pathMatch: 'full' ,
-  },{
-    path:"css",component:OneComponent
-  },{
-    path:"one",component:OneComponent
-  },{
-    path:"two",component:TwoComponent
-  }
+  { path: '', pathMatch: 'full', redirectTo: '/welcome' },
+  { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) }
 ];
 
 @NgModule({
