@@ -7,13 +7,10 @@ import {LoginComponent} from "./pages/login/login/login.component";
 import {FlexTestComponent} from "./template/flex-test/flex-test.component";
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
   // {path: 'login', component:LoginComponent},
+  {path: '', pathMatch: 'full', redirectTo: '/login'},
+  { path: '**', component: LoginComponent }
   // {path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)},
-
-
-
-
 ];
 
 @NgModule({

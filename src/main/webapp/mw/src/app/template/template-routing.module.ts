@@ -1,17 +1,22 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {TestComponent} from "./test/test.component";
 import {FlexTestComponent} from "./flex-test/flex-test.component";
 import {TreeListComponent} from "./tree-list/tree-list.component";
 import {ListComponent} from "./list/list.component";
 
 
-const routes: Routes = [ {path: 'test', component: TestComponent},
-  {path: 'flex-test', component: FlexTestComponent},  {path: 'tree-list', component: TreeListComponent},
-  {path: 'list', component: ListComponent},];
+const routes: Routes = [
+  {path: 'test', component: TestComponent},
+  {path: 'flex-test', component: FlexTestComponent}, {path: 'tree-list', component: TreeListComponent},
+  {path: 'list', component: ListComponent},
+  // {path: '', redirectTo: '/test', pathMatch: 'full'},
+];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TemplateRoutingModule { }
+export class TemplateRoutingModule {
+}
