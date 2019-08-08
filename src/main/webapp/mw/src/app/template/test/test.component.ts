@@ -1,11 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {en_US, NzI18nService, zh_CN} from "ng-zorro-antd";
 
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.css']
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css']
 })
-export class WelcomeComponent implements OnInit {
+export class TestComponent implements OnInit {
+
   listOfData = [
     {
       key: '1',
@@ -159,10 +162,46 @@ export class WelcomeComponent implements OnInit {
     }
   ];
 
-  constructor() {
+
+  date = null; // new Date();
+  dateRange = []; // [ new Date(), addDays(new Date(), 3) ];
+  isEnglish = true;
+  validateForm: FormGroup;
+  controlArray: any[] = [];
+  isCollapse = true;
+
+  toggleCollapse(): void {
+    this.isCollapse = !this.isCollapse;
+    this.controlArray.forEach((c, index) => {
+      c.show = this.isCollapse ? index < 6 : true;
+    });
   }
 
-  ngOnInit() {
+  resetForm(): void {
+    this.validateForm.reset();
+  }
+
+
+  ngOnInit(): void {
+    this.validateForm = this.fb.group({});
+    for (let i = 0; i < 2; i++) {
+      this.controlArray.push({ index: i, show: i < 6 });
+      this.validateForm.addControl(`field${i}`, new FormControl());
+    }
+  }
+  constructor(private i18n: NzI18nService,private fb: FormBuilder) {}
+
+  onChange(result: Date): void {
+    console.log('onChange: ', result);
+  }
+
+  getWeek(result: Date): void {
+
+  }
+
+  changeLanguage(): void {
+    this.i18n.setLocale(this.isEnglish ? zh_CN : en_US);
+    this.isEnglish = !this.isEnglish;
   }
 
 }

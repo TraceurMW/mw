@@ -19,6 +19,9 @@ import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
+import {TemplateModule} from "./template/template.module";
+import {TreeListComponent} from "./template/tree-list/tree-list.component";
+import {Service} from "./services/service";
 
 registerLocaleData(zh);
 @NgModule({
@@ -27,9 +30,9 @@ registerLocaleData(zh);
   ],
   imports: [
     BrowserModule, MatSidenavModule,
-    AppRoutingModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, ReactiveFormsModule, MatFormFieldModule, MatAutocompleteModule, MatSelectModule, IconsProviderModule, NgZorroAntdModule, FormsModule, HttpClientModule
+    AppRoutingModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, ReactiveFormsModule, MatFormFieldModule, MatAutocompleteModule, MatSelectModule, IconsProviderModule, NgZorroAntdModule, FormsModule, HttpClientModule,TemplateModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [Service,{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

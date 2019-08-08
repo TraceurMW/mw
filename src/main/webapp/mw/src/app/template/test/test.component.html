@@ -1,0 +1,93 @@
+<form nz-form  class="ant-advanced-search-form">
+  <div nz-row [nzGutter]="24">
+    <div nz-col  [nzSpan]="12" *ngFor="let control of controlArray" [hidden]="false">
+      <nz-form-item nzFlex>
+        <nz-form-label >Field</nz-form-label>
+        <nz-form-control>
+          <input
+            nz-input
+            placeholder="placeholder"
+
+
+          />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+  <!--            <div nz-row>-->
+  <!--              <div nz-col [nzSpan]="24" class="search-area">-->
+  <!--                <button nz-button [nzType]="'primary'">Search</button>-->
+  <!--                <button nz-button (click)="resetForm()">Clear</button>-->
+  <!--&lt;!&ndash;                <a class="collapse" (click)="toggleCollapse()">&ndash;&gt;-->
+  <!--&lt;!&ndash;                  Collapse&ndash;&gt;-->
+  <!--&lt;!&ndash;                  <i nz-icon [nzType]="isCollapse ? 'down' : 'up'"></i>&ndash;&gt;-->
+  <!--&lt;!&ndash;                </a>&ndash;&gt;-->
+  <!--              </div>-->
+  <!--            </div>-->
+</form>
+<!--  <nz-layout>-->
+
+<!--    <nz-content>-->
+<!--      <nz-page-header>-->
+<!--        <nz-page-header-title>-->
+<!--          <form nz-form  class="ant-advanced-search-form">-->
+<!--            <div nz-row [nzGutter]="24">-->
+<!--              <div nz-col  [nzSpan]="8" *ngFor="let control of controlArray" [hidden]="false">-->
+<!--                <nz-form-item nzFlex>-->
+<!--                  <nz-form-label >Field</nz-form-label>-->
+<!--                  <nz-form-control>-->
+<!--                    <input-->
+<!--                      nz-input-->
+<!--                      placeholder="placeholder"-->
+
+
+<!--                    />-->
+<!--                  </nz-form-control>-->
+<!--                </nz-form-item>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--&lt;!&ndash;            <div nz-row>&ndash;&gt;-->
+<!--&lt;!&ndash;              <div nz-col [nzSpan]="24" class="search-area">&ndash;&gt;-->
+<!--&lt;!&ndash;                <button nz-button [nzType]="'primary'">Search</button>&ndash;&gt;-->
+<!--&lt;!&ndash;                <button nz-button (click)="resetForm()">Clear</button>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                <a class="collapse" (click)="toggleCollapse()">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  Collapse&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <i nz-icon [nzType]="isCollapse ? 'down' : 'up'"></i>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                </a>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;              </div>&ndash;&gt;-->
+<!--&lt;!&ndash;            </div>&ndash;&gt;-->
+<!--          </form>-->
+<!--        </nz-page-header-title>-->
+<!--        <nz-page-header-content>-->
+
+<!--          <nz-table #basicTable [nzData]="listOfData">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--              <th>Name</th>-->
+<!--              <th>Age</th>-->
+<!--              <th>Address</th>-->
+<!--              <th>Action</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <tr *ngFor="let data of basicTable.data">-->
+<!--              <td>{{ data.name }}</td>-->
+<!--              <td>{{ data.age }}</td>-->
+<!--              <td>{{ data.address }}</td>-->
+<!--              <td>-->
+<!--                <a>Action 一 {{ data.name }}</a>-->
+<!--                <nz-divider nzType="vertical"></nz-divider>-->
+<!--                <a>Delete</a>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--            </tbody>-->
+<!--          </nz-table>-->
+<!--        </nz-page-header-content>-->
+<!--        <nz-page-header-footer>-->
+
+<!--        </nz-page-header-footer>-->
+<!--      </nz-page-header>-->
+
+<!--    </nz-content>-->
+<!--  </nz-layout>-->
+

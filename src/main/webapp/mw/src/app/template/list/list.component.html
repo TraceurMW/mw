@@ -1,0 +1,106 @@
+
+<nz-layout style="background: #fff">
+    <nz-content>
+      <form nz-form class="ant-advanced-search-form">
+        <!--            <div nz-row [nzGutter]="24">-->
+        <!--              <div nz-col [nzSpan]="8" >-->
+        <!--                <nz-form-item nzFlex>-->
+        <!--                  <nz-form-label >Field </nz-form-label>-->
+        <!--                  <nz-form-control>-->
+        <!--                    <input name="a"-->
+        <!--                           [attr.id]="'field'"-->
+        <!--                      nz-input-->
+        <!--                      placeholder="placeholder"-->
+        <!--                    />-->
+        <!--                  </nz-form-control>-->
+        <!--                </nz-form-item>-->
+        <!--&lt;!&ndash;                <nz-form-item nzFlex>&ndash;&gt;-->
+        <!--&lt;!&ndash;                  <nz-form-label >时间 </nz-form-label>&ndash;&gt;-->
+        <!--&lt;!&ndash;                  <nz-form-control>&ndash;&gt;-->
+        <!--&lt;!&ndash;                    <nz-range-picker name="date" [(ngModel)]="dateRange" (ngModelChange)="onChange($event)" nzShowTime></nz-range-picker>&ndash;&gt;-->
+        <!--&lt;!&ndash;                  </nz-form-control>&ndash;&gt;-->
+        <!--&lt;!&ndash;                </nz-form-item>&ndash;&gt;-->
+        <!--&lt;!&ndash;                <nz-form-item nzFlex>&ndash;&gt;-->
+        <!--&lt;!&ndash;                  <nz-form-label >创建时间 </nz-form-label>&ndash;&gt;-->
+        <!--&lt;!&ndash;                  <nz-form-control>&ndash;&gt;-->
+        <!--&lt;!&ndash;                    <nz-date-picker name="dateRange" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>&ndash;&gt;-->
+        <!--&lt;!&ndash;                  </nz-form-control>&ndash;&gt;-->
+        <!--&lt;!&ndash;                </nz-form-item>&ndash;&gt;-->
+        <!--              </div>-->
+        <!--            </div>-->
+        <div nz-row [nzGutter]="32">
+          <div nz-col class="gutter-row" [nzSpan]="12">
+            <nz-form-item nzFlex>
+              <nz-form-label [nzFor]="'field1'">Field</nz-form-label>
+              <nz-form-control>
+                <input
+                  nz-input
+                  placeholder="placeholder"
+                  name="a"
+
+                  [attr.id]="'field1'"
+                />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <!--              <div nz-col [nzSpan]="8">-->
+          <!--                <nz-form-item nzFlex>-->
+          <!--                  <nz-form-label [nzFor]="'field3'">Field</nz-form-label>-->
+          <!--                  <nz-form-control>-->
+          <!--                    <input-->
+          <!--                      nz-input-->
+          <!--                      placeholder="placeholder"-->
+          <!--                      name="b"-->
+
+          <!--                      [attr.id]="'field1'"-->
+          <!--                    />-->
+          <!--                  </nz-form-control>-->
+          <!--                </nz-form-item>-->
+          <!--              </div>-->
+          <div nz-col [nzSpan]="8">
+            <nz-form-item nzFlex>
+              <nz-form-label [nzFor]="'field2'">Field</nz-form-label>
+              <nz-form-control>
+                <input
+                  nz-input
+                  placeholder="placeholder"
+                  name="c"
+
+                  [attr.id]="'field1'"
+                />
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+        <div nz-row>
+          <div nz-col [nzSpan]="24" class="search-area">
+            <button nz-button [nzType]="'primary'">Search</button>
+            <button nz-button (click)="resetForm()">Clear</button>
+          </div>
+        </div>
+      </form>
+        <nz-table #basicTable [nzData]="listOfData" style="margin-top: 10px">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let data of basicTable.data">
+            <td>{{ data.name }}</td>
+            <td>{{ data.age }}</td>
+            <td>{{ data.address }}</td>
+            <td>
+              <a>Action 一 {{ data.name }}</a>
+              <nz-divider nzType="vertical"></nz-divider>
+              <a>Delete</a>
+            </td>
+          </tr>
+          </tbody>
+        </nz-table>
+
+    </nz-content>
+  </nz-layout>
