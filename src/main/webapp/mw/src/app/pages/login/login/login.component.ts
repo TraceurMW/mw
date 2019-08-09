@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +19,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,private router:Router,) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -25,6 +27,9 @@ export class LoginComponent implements OnInit {
       password: [null, [Validators.required]],
       remember: [true]
     });
+  }
+  index(){
+    this.router.navigate(['/frame']);
   }
 
 }

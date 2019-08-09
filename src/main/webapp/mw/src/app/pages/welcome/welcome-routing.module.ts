@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './welcome.component';
 
 const routes: Routes = [
-  { path: 'welcome', component: WelcomeComponent },
-  // {path: '', redirectTo: '/welcome', pathMatch: 'full'},
+  {path: '', redirectTo: '/welcome', pathMatch: 'full'},
+  // { path: 'welcome', component: WelcomeComponent },
 
 ];
 

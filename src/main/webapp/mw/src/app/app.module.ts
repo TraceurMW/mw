@@ -25,6 +25,7 @@ import {Service} from "./services/service";
 import {LoginModule} from "./pages/login/login.module";
 import {Router} from '@angular/router';
 import {SiderFrameModule} from "./pages/sider-frame/sider-frame.module";
+import {WelcomeModule} from "./pages/welcome/welcome.module";
 
 registerLocaleData(zh);
 
@@ -34,7 +35,7 @@ registerLocaleData(zh);
   ],
   imports: [
     BrowserModule, MatSidenavModule
-    , BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, ReactiveFormsModule, MatFormFieldModule, MatAutocompleteModule, MatSelectModule, IconsProviderModule, NgZorroAntdModule, FormsModule, HttpClientModule, TemplateModule, LoginModule,SiderFrameModule, AppRoutingModule,
+    , BrowserAnimationsModule, MatButtonModule, MatCheckboxModule, ReactiveFormsModule, MatFormFieldModule, MatAutocompleteModule, MatSelectModule, IconsProviderModule, NgZorroAntdModule, FormsModule, HttpClientModule, TemplateModule, LoginModule,SiderFrameModule, AppRoutingModule,WelcomeModule
   ],
   providers: [Service, {provide: NZ_I18N, useValue: zh_CN}],
   bootstrap: [AppComponent]

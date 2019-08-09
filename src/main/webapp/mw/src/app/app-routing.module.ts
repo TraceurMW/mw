@@ -9,9 +9,9 @@ import {SiderFrameComponent} from "./pages/sider-frame/sider-frame.component";
 
 const routes: Routes = [
   // {path: 'login', component:LoginComponent},
-  { path: 'frame', component: SiderFrameComponent },
+  // { path: 'frame', component: SiderFrameComponent },
   {path: '', pathMatch: 'full', redirectTo: '/login'},
-  { path: '**', component: LoginComponent }
+  // { path: '**', component: LoginComponent }
   // {path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)},
 ];
 
