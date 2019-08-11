@@ -1,5 +1,6 @@
 package com.mw.Study.Leetcode.Algorithm;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -92,6 +93,7 @@ public class a {
         do {
             long digit = total % 10;
             resutlList.add((int)digit);
+
             total = total / 10;
         } while ((total != 0 && total < 10) || total / 10 != 0);
         for (int i = 0; i < resutlList.size(); i++) {
@@ -103,6 +105,7 @@ public class a {
             ListNode digitNode = new ListNode(digit);
             ListNode lastListNode = getLastListNode(result);
             lastListNode.next = digitNode;
+
         }
         return result;
     }
