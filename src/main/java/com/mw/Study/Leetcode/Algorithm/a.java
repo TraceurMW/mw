@@ -72,32 +72,31 @@ public class a {
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        long l1Index = 1;
-        long l1Total = 0;
+        BigInteger l1Index = new BigInteger("1");
+        BigInteger l1Total = new BigInteger("0");
         do {
-            l1Total += l1Index * l1.val;
-            l1Index *= 10;
+            l1Total =l1Total.add(l1Index .multiply(new BigInteger(String.valueOf(l1.val))) );
+            l1Index=l1Index.multiply(new BigInteger("10"));
             l1 = l1.next;
         } while (l1 != null);
 
-        long l2Index = 1;
-        long l2Total = 0;
+        BigInteger l2Index = new BigInteger("1");
+        BigInteger l2Total = new BigInteger("0");
         do {
-            l2Total += l2Index * l2.val;
-            l2Index *= 10;
+            l2Total =l2Total.add(l2Index .multiply(new BigInteger(String.valueOf(l2.val))) );
+            l2Index=l2Index.multiply(new BigInteger("10"));
             l2 = l2.next;
         } while (l2 != null);
         ListNode result = new ListNode(-1);
-        List<Integer> resutlList = new ArrayList<>();
-        long total = l1Total + l2Total;
+        List<BigInteger> resutlList = new ArrayList<>();
+        BigInteger total = l1Total.add(l2Total);
         do {
-            long digit = total % 10;
-            resutlList.add((int)digit);
-
-            total = total / 10;
-        } while ((total != 0 && total < 10) || total / 10 != 0);
+            BigInteger digit = total.mod(new BigInteger("10")) ;
+            resutlList.add(digit);
+            total = total.divide(new BigInteger("10"));
+        } while ((total.intValue() != 0 && total.intValue() < 10) || total.intValue() / 10 != 0);
         for (int i = 0; i < resutlList.size(); i++) {
-            int digit = resutlList.get(i);
+            int digit = resutlList.get(i).intValue();
             if (result.val == -1) {
                 result.val = digit;
                 continue;
@@ -105,7 +104,6 @@ public class a {
             ListNode digitNode = new ListNode(digit);
             ListNode lastListNode = getLastListNode(result);
             lastListNode.next = digitNode;
-
         }
         return result;
     }
