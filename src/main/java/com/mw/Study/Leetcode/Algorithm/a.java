@@ -71,42 +71,7 @@ public class a {
         }
     }
 
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        BigInteger l1Index = new BigInteger("1");
-        BigInteger l1Total = new BigInteger("0");
-        do {
-            l1Total =l1Total.add(l1Index .multiply(new BigInteger(String.valueOf(l1.val))) );
-            l1Index=l1Index.multiply(new BigInteger("10"));
-            l1 = l1.next;
-        } while (l1 != null);
 
-        BigInteger l2Index = new BigInteger("1");
-        BigInteger l2Total = new BigInteger("0");
-        do {
-            l2Total =l2Total.add(l2Index .multiply(new BigInteger(String.valueOf(l2.val))) );
-            l2Index=l2Index.multiply(new BigInteger("10"));
-            l2 = l2.next;
-        } while (l2 != null);
-        ListNode result = new ListNode(-1);
-        List<BigInteger> resutlList = new ArrayList<>();
-        BigInteger total = l1Total.add(l2Total);
-        do {
-            BigInteger digit = total.mod(new BigInteger("10")) ;
-            resutlList.add(digit);
-            total = total.divide(new BigInteger("10"));
-        } while ((total.intValue() != 0 && total.intValue() < 10) || total.intValue() / 10 != 0);
-        for (int i = 0; i < resutlList.size(); i++) {
-            int digit = resutlList.get(i).intValue();
-            if (result.val == -1) {
-                result.val = digit;
-                continue;
-            }
-            ListNode digitNode = new ListNode(digit);
-            ListNode lastListNode = getLastListNode(result);
-            lastListNode.next = digitNode;
-        }
-        return result;
-    }
 
     public static ListNode getLastListNode(ListNode listNode) {
         while (listNode.next != null) {
@@ -130,9 +95,45 @@ public class a {
         return node;
     }
 
+    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        BigInteger l1Index = new BigInteger("1");
+        BigInteger l1Total = new BigInteger("0");
+        do {
+            l1Total =l1Total.add(l1Index .multiply(new BigInteger(String.valueOf(l1.val))) );
+            l1Index=l1Index.multiply(new BigInteger("10"));
+            l1 = l1.next;
+        } while (l1 != null);
 
+        BigInteger l2Index = new BigInteger("1");
+        BigInteger l2Total = new BigInteger("0");
+        do {
+            l2Total =l2Total.add(l2Index .multiply(new BigInteger(String.valueOf(l2.val))) );
+            l2Index=l2Index.multiply(new BigInteger("10"));
+            l2 = l2.next;
+        } while (l2 != null);
+        ListNode result = new ListNode(-1);
+        List<BigInteger> resutlList = new ArrayList<>();
+        BigInteger total = l1Total.add(l2Total);
+        do {
+            BigInteger digit = total.mod(new BigInteger("10")) ;
+            resutlList.add(digit);
+            total = total.divide(new BigInteger("10"));
+            System.out.println(total);
+        } while ((!total.equals(new BigInteger("0")) && (total.compareTo(new BigInteger("10")) ==-1) )|| !total.divide((new BigInteger("10")) ).equals(new BigInteger("0")));
+        for (int i = 0; i < resutlList.size(); i++) {
+            int digit = resutlList.get(i).intValue();
+            if (result.val == -1) {
+                result.val = digit;
+                continue;
+            }
+            ListNode digitNode = new ListNode(digit);
+            ListNode lastListNode = getLastListNode(result);
+            lastListNode.next = digitNode;
+        }
+        return result;
+    }
     public static void main(String[] args) {
-        int[] v1 = {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
+        int[] v1 = {2,4,3};
         int[] v2 = {5,6,4};
         ListNode l1 = getListNodeFromArray(v1);
         ListNode l2 = getListNodeFromArray(v2);
