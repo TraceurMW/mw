@@ -1,6 +1,8 @@
 package com.mw.Study.Leetcode.Algorithm;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class a {
@@ -62,63 +64,97 @@ public class a {
     public static class ListNode {
         int val;
         ListNode next;
+
         ListNode(int x) {
             val = x;
         }
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode l1n = l1.next;
-        ListNode l1nn = l1n.next;
+        long l1Index = 1;
+        long l1Total = 0;
+        do {
+            l1Total += l1Index * l1.val;
+            l1Index *= 10;
+            l1 = l1.next;
+        } while (l1 != null);
 
-        int v1 = l1.val;
-        int v1n = l1n.val;
-        int v1nn = l1nn.val;
+        long l2Index = 1;
+        long l2Total = 0;
+        do {
+            l2Total += l2Index * l2.val;
+            l2Index *= 10;
+            l2 = l2.next;
+        } while (l2 != null);
+        ListNode result = new ListNode(-1);
+        List<Integer> resutlList = new ArrayList<>();
+        long total = l1Total + l2Total;
+        do {
+            long digit = total % 10;
+            resutlList.add((int)digit);
+            total = total / 10;
+        } while ((total != 0 && total < 10) || total / 10 != 0);
+        for (int i = 0; i < resutlList.size(); i++) {
+            int digit = resutlList.get(i);
+            if (result.val == -1) {
+                result.val = digit;
+                continue;
+            }
+            ListNode digitNode = new ListNode(digit);
+            ListNode lastListNode = getLastListNode(result);
+            lastListNode.next = digitNode;
+        }
+        return result;
+    }
 
-        ListNode l2n = l2.next;
-        ListNode l2nn = l2n.next;
+    public static ListNode getLastListNode(ListNode listNode) {
+        while (listNode.next != null) {
+            listNode = listNode.next;
+        }
+        return listNode;
+    }
 
-        int v2 = l2.val;
-        int v2n = l2n.val;
-        int v2nn = l2nn.val;
+    public static ListNode getListNodeFromArray(int[] array) {
+        ListNode node = new ListNode(-1);
+        for (int i = 0; i < array.length; i++) {
+            if (node.val == -1) {
+                node.val = array[i];
+                continue;
+            }
 
-        int i1=v1nn*100+v1n*10+v1;
-        int i2=v2nn*100+v2n*10+v2;
-
-        int i=i1+i2;
-
-        int r1=(int)i/100;
-        int r2=(int)(i%100)/10;
-        int r3=(int)i%10;
-
-        ListNode rl1 = new ListNode(r3);
-        ListNode rl2 = new ListNode(r2);
-        ListNode rl3 = new ListNode(r1);
-        rl2.next=rl3;
-        rl1.next=rl2;
-        return rl1;
+            ListNode digitNode = new ListNode(array[i]);
+            ListNode lastListNode = getLastListNode(node);
+            lastListNode.next = digitNode;
+        }
+        return node;
     }
 
 
     public static void main(String[] args) {
-        ListNode l2 = new ListNode(2);
-        ListNode l4 = new ListNode(4);
-        ListNode l3 = new ListNode(3);
-        l4.next=l3;
-        l2.next=l4;
-
-        ListNode m5 = new ListNode(5);
-        ListNode m6 = new ListNode(6);
-        ListNode m4 = new ListNode(4);
-        m6.next=m4;
-        m5.next=m6;
-
-        ListNode listNode = addTwoNumbers(l2, m5);
-
-        int[] nums = {2, 7, 11, 15};
-        int[] ints = twoSum(nums, 9);
-        for (int anInt : ints) {
-            System.out.println(anInt);
-        }
+        int[] v1 = {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1};
+        int[] v2 = {5,6,4};
+        ListNode l1 = getListNodeFromArray(v1);
+        ListNode l2 = getListNodeFromArray(v2);
+        ListNode listNode = addTwoNumbers(l1, l2);
+        int a = 0;
+//        ListNode l2 = new ListNode(2);
+//        ListNode l4 = new ListNode(4);
+//        ListNode l3 = new ListNode(3);
+//        l4.next = l3;
+//        l2.next = l4;
+//
+//        ListNode m5 = new ListNode(5);
+//        ListNode m6 = new ListNode(6);
+//        ListNode m4 = new ListNode(4);
+//        m6.next = m4;
+//        m5.next = m6;
+//
+//        ListNode listNode = addTwoNumbers(l2, m5);
+//        int aadasd = 0;
+//        int[] nums = {2, 7, 11, 15};
+//        int[] ints = twoSum(nums, 9);
+//        for (int anInt : ints) {
+//            System.out.println(anInt);
+//        }
     }
 }
