@@ -33,4 +33,9 @@ public class UserController extends CommonController {
     public void deleteUser(Long id) {
         userService.deleteById(id);
     }
+
+    @GetMapping("test")
+    public String test(){
+        return "1";
+    }
 }

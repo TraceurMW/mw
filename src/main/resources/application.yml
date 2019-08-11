@@ -1,4 +1,8 @@
 spring:
+  security:
+    user:
+      password: admin
+      name: admin
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://127.0.0.1:3306/mw?serverTimezone=UTC
@@ -10,3 +14,4 @@ spring:
     show-sql: true
 server:
   port: 6689
+
