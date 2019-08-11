@@ -1,9 +1,7 @@
 package com.mw.Study.Leetcode.Algorithm;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class a {
@@ -72,7 +70,6 @@ public class a {
     }
 
 
-
     public static ListNode getLastListNode(ListNode listNode) {
         while (listNode.next != null) {
             listNode = listNode.next;
@@ -99,46 +96,104 @@ public class a {
         BigInteger l1Index = new BigInteger("1");
         BigInteger l1Total = new BigInteger("0");
         do {
-            l1Total =l1Total.add(l1Index .multiply(new BigInteger(String.valueOf(l1.val))) );
-            l1Index=l1Index.multiply(new BigInteger("10"));
+            l1Total = l1Total.add(l1Index.multiply(new BigInteger(String.valueOf(l1.val))));
+            l1Index = l1Index.multiply(new BigInteger("10"));
             l1 = l1.next;
         } while (l1 != null);
 
         BigInteger l2Index = new BigInteger("1");
         BigInteger l2Total = new BigInteger("0");
         do {
-            l2Total =l2Total.add(l2Index .multiply(new BigInteger(String.valueOf(l2.val))) );
-            l2Index=l2Index.multiply(new BigInteger("10"));
+            l2Total = l2Total.add(l2Index.multiply(new BigInteger(String.valueOf(l2.val))));
+            l2Index = l2Index.multiply(new BigInteger("10"));
             l2 = l2.next;
         } while (l2 != null);
         ListNode result = new ListNode(-1);
-        List<BigInteger> resutlList = new ArrayList<>();
         BigInteger total = l1Total.add(l2Total);
         do {
-            BigInteger digit = total.mod(new BigInteger("10")) ;
-            resutlList.add(digit);
+            BigInteger digit = total.mod(new BigInteger("10"));
             total = total.divide(new BigInteger("10"));
             System.out.println(total);
-        } while ((!total.equals(new BigInteger("0")) && (total.compareTo(new BigInteger("10")) ==-1) )|| !total.divide((new BigInteger("10")) ).equals(new BigInteger("0")));
-        for (int i = 0; i < resutlList.size(); i++) {
-            int digit = resutlList.get(i).intValue();
             if (result.val == -1) {
-                result.val = digit;
+                result.val = digit.intValue();
                 continue;
             }
-            ListNode digitNode = new ListNode(digit);
+            ListNode digitNode = new ListNode(digit.intValue());
             ListNode lastListNode = getLastListNode(result);
             lastListNode.next = digitNode;
-        }
+        } while ((!total.equals(new BigInteger("0")) && (total.compareTo(new BigInteger("10")) == -1)) || !total.divide((new BigInteger("10"))).equals(new BigInteger("0")));
         return result;
     }
+
+    public static ListNode addTwoNumbers1(ListNode l1, ListNode l2) {
+        ListNode dummyHead = new ListNode(0);
+        ListNode p = l1, q = l2, curr = dummyHead;
+        int carry = 0;
+        while (p != null || q != null) {
+            int x = (p != null) ? p.val : 0;
+            int y = (q != null) ? q.val : 0;
+            int sum = carry + x + y;
+            carry = sum / 10;
+            curr.next = new ListNode(sum % 10);
+            curr = curr.next;
+            if (p != null) p = p.next;
+            if (q != null) q = q.next;
+        }
+        if (carry > 0) {
+            curr.next = new ListNode(carry);
+        }
+        return dummyHead.next;
+    }
+
+    //    给出一个 32 位的有符号整数，你需要将这个整数中每位上的数字进行反转。
+//    示例 1:
+//    输入: 123
+//    输出: 321
+//    示例 2:
+//    输入: -123
+//    输出: -321
+//    示例 3:
+//    输入: 120
+//    输出: 21
+    public static int reverse(int x) {
+        boolean isLost=false;
+        if (x<0){
+            isLost=true;
+            x=-x;
+        }
+        if (x>10){
+            while(x%10==0){
+                x/=10;
+            }
+        }
+        System.out.println(x);
+        Integer integer = new Integer(x);
+        String s = integer.toString();
+        char[] chars = s.toCharArray();
+        char[] charsReverse=new char[chars.length];
+        for (int i = 0; i < chars.length; i++) {
+            charsReverse[chars.length-1-i]=chars[i];
+        }
+        String s1="";
+        for (char c : charsReverse) {
+            s1+=c;
+        }
+        long i = Long.parseLong(s1);
+        if (isLost){
+            i=-i;
+        }
+        return (int)i;
+    }
+
+
     public static void main(String[] args) {
-        int[] v1 = {2,4,3};
-        int[] v2 = {5,6,4};
-        ListNode l1 = getListNodeFromArray(v1);
-        ListNode l2 = getListNodeFromArray(v2);
-        ListNode listNode = addTwoNumbers(l1, l2);
-        int a = 0;
+        reverse(1534236469);
+//        int[] v1 = {2,4,3};
+//        int[] v2 = {5,6,4};
+//        ListNode l1 = getListNodeFromArray(v1);
+//        ListNode l2 = getListNodeFromArray(v2);
+//        ListNode listNode = addTwoNumbers1(l1, l2);
+//        int a = 0;
 //        ListNode l2 = new ListNode(2);
 //        ListNode l4 = new ListNode(4);
 //        ListNode l3 = new ListNode(3);
