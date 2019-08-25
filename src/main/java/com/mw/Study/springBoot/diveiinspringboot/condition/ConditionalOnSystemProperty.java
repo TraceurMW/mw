@@ -1,4 +1,4 @@
-package com.mw.Study.diveiinspringboot.condition;
+package com.mw.Study.springBoot.diveiinspringboot.condition;
 
 import org.springframework.context.annotation.Conditional;
 

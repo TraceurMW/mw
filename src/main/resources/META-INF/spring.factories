@@ -1,3 +1,17 @@
 #×Ô¶¯×°Åä
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.mw.Study.diveiinspringboot.configuration.HelloWorldAutoConfiguration
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+#com.mw.Study.springBoot.diveiinspringboot.configuration.HelloWorldAutoConfiguration
+# Initializers
+
+org.springframework.context.ApplicationContextInitializer=\
+com.mw.Study.springBoot.springApplication.context.HelloWorldApplicationContextInitializer,\
+com.mw.Study.springBoot.springApplication.context.AfterHelloWorldApplicationContextInitializer
+
+
+org.springframework.context.ApplicationListener=\
+com.mw.Study.springBoot.springApplication.listener.AfterHelloWorldApplicationListener,\
+com.mw.Study.springBoot.springApplication.listener.HelloWorldApplicationListener,\
+com.mw.Study.springBoot.springApplication.listener.BeforeConfigFileApplicationListener
+# Run Listeners
+org.springframework.boot.SpringApplicationRunListener=\
+org.springframework.boot.context.event.EventPublishingRunListener

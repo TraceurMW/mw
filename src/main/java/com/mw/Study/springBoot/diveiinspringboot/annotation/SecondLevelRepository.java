@@ -1,4 +1,4 @@
-package com.mw.Study.diveiinspringboot.annotation;
+package com.mw.Study.springBoot.diveiinspringboot.annotation;
 
 import org.springframework.stereotype.Repository;
 

@@ -1,3 +1,4 @@
+name: TraceurMW
 spring:
   security:
     user:

@@ -1,8 +1,7 @@
-package com.mw.Study.diveiinspringboot.bootstrp;
+package com.mw.Study.springBoot.diveiinspringboot.bootstrp;
 
-import com.mw.Study.diveiinspringboot.repository.MyFirstLevelRepository;
+import com.mw.Study.springBoot.diveiinspringboot.repository.MyFirstLevelRepository;
 import org.springframework.boot.WebApplicationType;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 /***
  * 模式注解
  */
-@ComponentScan("com.mw.Study.diveiinspringboot.repository")
+@ComponentScan("com.mw.Study.springBoot.diveiinspringboot.repository")
 public class RepositoryBootstrap {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = new SpringApplicationBuilder(RepositoryBootstrap.class)

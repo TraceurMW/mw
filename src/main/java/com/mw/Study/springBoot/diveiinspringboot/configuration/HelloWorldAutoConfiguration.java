@@ -1,7 +1,7 @@
-package com.mw.Study.diveiinspringboot.configuration;
+package com.mw.Study.springBoot.diveiinspringboot.configuration;
 
-import com.mw.Study.diveiinspringboot.annotation.EnableHelloWorld;
-import com.mw.Study.diveiinspringboot.condition.ConditionalOnSystemProperty;
+import com.mw.Study.springBoot.diveiinspringboot.annotation.EnableHelloWorld;
+import com.mw.Study.springBoot.diveiinspringboot.condition.ConditionalOnSystemProperty;
 import org.springframework.context.annotation.Configuration;
 
 /***

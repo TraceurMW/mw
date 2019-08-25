@@ -1,6 +1,6 @@
-package com.mw.Study.diveiinspringboot.annotation;
+package com.mw.Study.springBoot.diveiinspringboot.annotation;
 
-import com.mw.Study.diveiinspringboot.configuration.HelloWorldConfiguration;
+import com.mw.Study.springBoot.diveiinspringboot.configuration.HelloWorldConfiguration;
 import org.springframework.context.annotation.ImportSelector;
 import org.springframework.core.type.AnnotationMetadata;
 

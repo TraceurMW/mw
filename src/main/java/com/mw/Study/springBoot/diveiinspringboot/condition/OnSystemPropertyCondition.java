@@ -1,12 +1,10 @@
-package com.mw.Study.diveiinspringboot.condition;
+package com.mw.Study.springBoot.diveiinspringboot.condition;
 
 
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
 import org.springframework.core.type.AnnotatedTypeMetadata;
-import org.springframework.util.MultiValueMap;
 
-import java.util.List;
 import java.util.Map;
 
 public class OnSystemPropertyCondition implements Condition {

@@ -1,4 +1,4 @@
-package com.mw.Study.diveiinspringboot.bootstrp;
+package com.mw.Study.springBoot.diveiinspringboot.bootstrp;
 
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

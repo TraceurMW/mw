@@ -1,6 +1,6 @@
-package com.mw.Study.diveiinspringboot.bootstrp;
+package com.mw.Study.springBoot.diveiinspringboot.bootstrp;
 
-import com.mw.Study.diveiinspringboot.condition.ConditionalOnSystemProperty;
+import com.mw.Study.springBoot.diveiinspringboot.condition.ConditionalOnSystemProperty;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 public class ConditionalOnSystemPropertyBootstrap {
 
     @Bean
-    @ConditionalOnSystemProperty(name="user.name",value = "TraceurMW")
+//    @ConditionalOnSystemProperty(name="user.name",value = "TraceurMW")
     public String helloWorld(){
         return "Hello MW";
     }

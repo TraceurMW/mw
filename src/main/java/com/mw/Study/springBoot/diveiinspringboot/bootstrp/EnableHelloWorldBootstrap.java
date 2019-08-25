@@ -1,7 +1,6 @@
-package com.mw.Study.diveiinspringboot.bootstrp;
+package com.mw.Study.springBoot.diveiinspringboot.bootstrp;
 
-import com.mw.Study.diveiinspringboot.annotation.EnableHelloWorld;
-import com.mw.Study.diveiinspringboot.repository.MyFirstLevelRepository;
+import com.mw.Study.springBoot.diveiinspringboot.annotation.EnableHelloWorld;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;

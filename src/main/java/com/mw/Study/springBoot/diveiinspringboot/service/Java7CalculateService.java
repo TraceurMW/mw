@@ -1,4 +1,4 @@
-package com.mw.Study.diveiinspringboot.service;
+package com.mw.Study.springBoot.diveiinspringboot.service;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
